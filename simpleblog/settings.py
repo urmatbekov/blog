@@ -28,7 +28,7 @@ try:
 except ImportError:
     from .settings_prod import *
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nurkadyrnur.pythonanywhere.com']
 
 # Application definition
 
