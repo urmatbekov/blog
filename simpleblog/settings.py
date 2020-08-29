@@ -28,7 +28,7 @@ try:
 except ImportError:
     from .settings_prod import *
 
-ALLOWED_HOSTS = ['nurkadyrnur.pythonanywhere.com']
+ALLOWED_HOSTS = ['nurkadyrnur.pythonanywhere.com', '127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -49,9 +49,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -90,6 +90,11 @@ DATABASES = {
     }
 }
 
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -107,6 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
@@ -122,8 +128,6 @@ THUMBNAIL_ALIASES = {
         'blog': {'size': (500, 500), 'crop': "smart", "upscale": True},
     },
 }
-
-CORS_ALLOW_ALL_ORIGINS = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
