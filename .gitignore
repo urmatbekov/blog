@@ -1,2 +1,4 @@
 /.idea
 /simpleblog/settings_dev.py
+/media
+/db.sqlite3
