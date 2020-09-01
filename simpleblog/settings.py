@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 import os
+from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -40,12 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'rest_framework.authtoken',
+    # 'rest_framework.authtoken',
     'djoser',
     'news',
     'django_cleanup',
     'easy_thumbnails',
     'corsheaders',
+    'django_expiring_token'
 ]
 
 MIDDLEWARE = [
@@ -115,7 +117,8 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': [
         # 'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
+        # 'rest_framework.authentication.TokenAuthentication',
+        'django_expiring_token.authentication.ExpiringTokenAuthentication'
     ],
 }
 THUMBNAIL_ALIASES = {
@@ -124,6 +127,8 @@ THUMBNAIL_ALIASES = {
         'blog': {'size': (500, 500), 'crop': "smart", "upscale": True},
     },
 }
+
+# EXPIRING_TOKEN_DURATION = timedelta(days=1)
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
