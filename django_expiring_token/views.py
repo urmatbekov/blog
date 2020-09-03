@@ -23,7 +23,7 @@ class LoginView(APIView):
         )
 
         if not user:
-            return Response({'detail': 'Invalid Credentials'}, status=HTTP_400_BAD_REQUEST)
+            return Response({'detail': 'Неверные учетные данные'}, status=HTTP_400_BAD_REQUEST)
         # TOKEN STUFF
         token, created = ExpiringToken.objects.get_or_create(user=user)
 

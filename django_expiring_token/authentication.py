@@ -43,14 +43,14 @@ class ExpiringTokenAuthentication(TokenAuthentication):
         try:
             token = ExpiringToken.objects.get(key=key)
         except ExpiringToken.DoesNotExist:
-            raise AuthenticationFailed("Invalid Token")
+            raise AuthenticationFailed("Неверный токен")
 
         if not token.user.is_active:
-            raise AuthenticationFailed("User is not active")
+            raise AuthenticationFailed("Пользователь не активен")
 
         is_expired, token = token_expire_handler(token)
         if is_expired:
-            raise AuthenticationFailed("The Token is expired")
+            raise AuthenticationFailed("Срок действия токена истек")
 
         token.expires = timezone.now() + custom_settings.EXPIRING_TOKEN_DURATION
         token.save()
