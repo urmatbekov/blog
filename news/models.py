@@ -15,6 +15,7 @@ TYPE_CHOICES = (
 # Create your models here.
 class New(models.Model):
     title = models.CharField(max_length=255)
+    short_body = models.TextField(null=True)
     body = models.TextField()
     type = models.CharField(max_length=5, choices=TYPE_CHOICES, default='a')
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)

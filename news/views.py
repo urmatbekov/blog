@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
 from news.models import New
-from simpleblog.serializers import NewSerializerList, NewSerializerDetail, NewSerializerEdit
+from news.serializers import NewSerializerList, NewSerializerDetail, NewSerializerEdit
 
 
 class NewViewSets(ModelViewSet):
