@@ -8,7 +8,8 @@ class NewSerializerList(serializers.ModelSerializer):
 
     class Meta:
         model = New
-        fields = ['id', 'title', 'type', 'body', 'author', 'image_blog', 'image_detail', 'created_at', 'updated_at']
+        fields = ['id', 'title', 'type', 'short_body', 'body', 'author', 'image_blog', 'image_detail', 'created_at',
+                  'updated_at']
 
 
 class NewSerializerEdit(serializers.ModelSerializer):
