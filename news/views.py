@@ -10,6 +10,14 @@ class NewViewSets(ModelViewSet):
     serializer_class = NewSerializerEdit
     queryset = New.objects.all()
 
+    def perform_create(self, serializer):
+        request = self.request
+        serializer.save()
+        if request.user.id:
+            instance = serializer.instance
+            instance.owner = request.user
+            instance.save()
+
     def retrieve(self, request, *args, **kwargs):
         instance = self.get_object()
         serializer = NewSerializerDetail(instance)

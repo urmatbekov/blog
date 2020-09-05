@@ -115,6 +115,8 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ),
+    'DEFAULT_PAGINATION_CLASS': 'news.pagination.SerializerPagination',
+    'DEFAULT_METADATA_CLASS': 'news.metadata.MyMetaData',
     'DEFAULT_AUTHENTICATION_CLASSES': [
         # 'rest_framework.authentication.SessionAuthentication',
         # 'rest_framework.authentication.TokenAuthentication',
