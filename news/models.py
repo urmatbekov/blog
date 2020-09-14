@@ -23,6 +23,11 @@ class New(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def get_comments(self):
+        if self.comments.exists():
+            return [instance.get_data() for instance in self.comments.all()]
+        return None
+
     def __str__(self):
         return self.title
 

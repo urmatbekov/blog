@@ -25,4 +25,4 @@ class NewSerializerDetail(serializers.ModelSerializer):
         model = New
         fields = ['id', 'title', 'type', 'short_body', 'body', 'author', 'image', 'image_blog', 'image_detail',
                   'created_at',
-                  'updated_at']
+                  'updated_at', 'get_comments']

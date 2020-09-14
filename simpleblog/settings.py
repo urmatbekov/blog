@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'django_cleanup',
     'easy_thumbnails',
     'corsheaders',
-    'django_expiring_token'
+    'django_expiring_token',
+    'comments'
 ]
 
 MIDDLEWARE = [
@@ -114,6 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        'simpleblog.permissions.IsOwnerOrReadOnly'
     ),
     'DEFAULT_PAGINATION_CLASS': 'news.pagination.SerializerPagination',
     'DEFAULT_METADATA_CLASS': 'news.metadata.MyMetaData',
