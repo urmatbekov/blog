@@ -52,6 +52,12 @@ INSTALLED_APPS = [
     'comments',
 ]
 
+DJOSER = {
+    'SERIALIZERS': {
+        'current_user': 'users.serializers.UsersSerializer',
+    },
+}
+
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',

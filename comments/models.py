@@ -6,7 +6,7 @@ from news.models import New
 User = get_user_model()
 
 # Create your models here.
-from simpleblog.serializers import UsersSerializer
+from users.serializers import UsersSerializer
 
 
 class Comment(models.Model):
@@ -28,7 +28,7 @@ class Comment(models.Model):
     def get_data(self):
         return {
             'id': self.id,
-            'owner': UsersSerializer(self.owner).data,
+            'owner': self.owner and UsersSerializer(self.owner).data or None,
             'body': self.body,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
