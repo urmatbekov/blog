@@ -2,3 +2,4 @@
 /simpleblog/settings_dev.py
 /media
 /db.sqlite3
+/data.json

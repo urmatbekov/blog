@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'users.apps.UsersConfig',
     # 'rest_framework.authtoken',
     'djoser',
     'news',
@@ -48,7 +49,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'corsheaders',
     'django_expiring_token',
-    'comments'
+    'comments',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +62,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+AUTH_USER_MODEL = 'users.User'
 
 ROOT_URLCONF = 'simpleblog.urls'
 
