@@ -132,6 +132,7 @@ THUMBNAIL_ALIASES = {
     '': {
         'detail': {'size': (1000, 500), 'crop': "smart", "upscale": True},
         'blog': {'size': (750, 400), 'crop': "smart", "upscale": True},
+        'avatar': {'size': (60, 60), 'crop': "smart", "upscale": True},
     },
 }
 
