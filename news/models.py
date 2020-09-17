@@ -25,7 +25,7 @@ class New(models.Model):
 
     def get_comments(self):
         if self.comments.exists():
-            return [instance.get_data() for instance in self.comments.all()]
+            return [instance.get_data() for instance in self.comments.filter(parent__isnull=True)]
         return None
 
     def __str__(self):
