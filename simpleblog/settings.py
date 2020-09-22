@@ -55,6 +55,7 @@ INSTALLED_APPS = [
 DJOSER = {
     'SERIALIZERS': {
         'current_user': 'users.serializers.UsersSerializer',
+        'user': 'users.serializers.UsersSerializer',
     },
 }
 
@@ -126,6 +127,11 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
         'simpleblog.permissions.IsOwnerOrReadOnly'
     ),
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',
+        'rest_framework.filters.OrderingFilter',
+    ],
     'DEFAULT_PAGINATION_CLASS': 'news.pagination.SerializerPagination',
     'DEFAULT_METADATA_CLASS': 'news.metadata.MyMetaData',
     'DEFAULT_AUTHENTICATION_CLASSES': [

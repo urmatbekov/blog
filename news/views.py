@@ -1,10 +1,7 @@
-from rest_framework import status
-from rest_framework.decorators import action
 from rest_framework.response import Response
 # Create your views here.
 from rest_framework.viewsets import ModelViewSet
 
-from comments.serializers import CommentEdit
 from news.models import New
 from news.serializers import NewSerializerList, NewSerializerDetail, NewSerializerEdit
 
@@ -12,6 +9,9 @@ from news.serializers import NewSerializerList, NewSerializerDetail, NewSerializ
 class NewViewSets(ModelViewSet):
     serializer_class = NewSerializerEdit
     queryset = New.objects.all()
+    filterset_fields = ['type']
+    ordering_fields = ['created_at', 'updated_at']
+    search_fields = ['title', 'body', 'short_body', 'image']
 
     def perform_create(self, serializer):
         request = self.request
